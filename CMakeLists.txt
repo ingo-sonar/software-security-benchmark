@@ -1,6 +1,13 @@
-cmake_minimum_required(VERSION 3.9)
-project(sonar_scanner_example)
+cmake_minimum_required(VERSION 3.14)
 
-set(CMAKE_CXX_STANDARD 17)
+project (sast-benchmark
+  LANGUAGES C CXX
+)
 
-add_executable(sonar_scanner_example src/main.cpp)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+include(cmake/macros.cmake)
+
+add_subdirectory(buffer-overread)
+add_subdirectory(use-after-free)
+add_subdirectory(double-free)
